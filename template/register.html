@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+
+<div class="wrapper bgded overlay" style="background-image:url({% static 'images/demo/backgrounds/01.jpg' %});">
+
+  <div id="pageintro" class="hoc clear">
+<form action="register" method="post">
+    <h1  style="font-size:400%;">Registration Form</h1>
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Enter the username" class="btn"><br><br>
+    <input type="text" name="password" placeholder="Enter the password" class="btn"><br><br>
+    <input type="text" name="password1" placeholder="conform the password" class="btn"><br><br>
+    <input type="submit"  class="btn">
+</form>
+<!--{% for msg in messages %}-->
+<!--{{msg}}-->
+<!--{% endfor %}-->
+</body>
+</html>

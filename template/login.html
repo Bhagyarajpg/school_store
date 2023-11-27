@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+      <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+
+<div class="wrapper bgded overlay" style="background-image:url({% static 'images/demo/backgrounds/01.jpg' %});">
+
+  <div id="pageintro" class="hoc clear">
+
+<form action="login" method="post">
+    {% csrf_token %}
+    <h1 style="font-size:400%;">login Form</h1><br>
+    <input type="text" name="username" placeholder="Enter the username"  class="btn"></br>
+<br>
+    <input type="password" name="password" placeholder="Enter the password" class="btn"></br>
+<br><br>
+    <input type="submit" value="Login" class="btn">
+</form>
+  </div></div>
+<!--{% for msg in messages %}-->
+<!--{{msg}}-->
+<!--{% endfor %}-->
+</body>
+</html>

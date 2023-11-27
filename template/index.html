@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+Template Name: Shicso
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Copyright: OS-Templates.com
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>School Strore</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+
+<div class="wrapper row1" style="background-color:gray;">
+  <div class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <nav id="mainav">
+        <ul class="clear">
+          <li ><a href="/">Home</a></li>
+          <li><a class="drop" href="#">Department</a>
+            <ul>
+              <li><a href="https://en.wikipedia.org/wiki/Computer_science" target="_blank">Computer Science</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Mechanical_engineering" target="_blank">Mechanics</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Civil_engineering" target="_blank">Civil</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Electronic_engineering" target="_blank">Electronics</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Electrical_engineering" target="_blank">Electrical</a></li>
+            </ul>
+          </li>
+
+        <li><a href="register">Register</a></li>
+        <li><a href="login">Login</a></li>
+
+
+        {% if user.is_authenticated %}
+           <li><a href="logout">Logout</a></li>
+        {% else %}
+
+        {% endif %}
+
+
+      </ul>
+    </nav>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded overlay" style="background-image:url({% static 'images/demo/backgrounds/01.jpg' %});">
+
+  <div id="pageintro" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <article>
+      <h3 class="heading">COLLEGE STORE</h3><br>
+        <h5>GOVT. ENGINEERING COLLEGE BARTONHILL</h5>
+      <footer>
+        <ul class="nospace inline pushright">
+          <li><a class="btn" href="register">Register</a></li>
+          <li><a class="btn inverse" href="login">Login</a></li>
+        </ul>
+      </footer>
+    </article>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <article class="group">
+      <div class="one_half first">
+        <h6 class="heading underline font-x2">Barton Hill, Barton Hill Colony, Kunnukuzhy, Thiruvananthapuram, Kerala 695035</h6>
+        <p class="btmspace-30">The Government Engineering College, Barton Hill, Thiruvananthapuram, was founded by the Government of Kerala in August 1999 and provides technical education under APJ Abdul Kalam Technological University. The institution is located in Barton Hill, which is two kilometres from the city centre in Trivandrum</p>
+        <footer>Read More</a></footer>
+      </div>
+      <div class="one_half"></div>
+    </article>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded overlay dark" style="background-image:url('images/demo/backgrounds/01.png');">
+  <div id="shout" class="hoc container clear"> 
+    <!-- ################################################################################################ -->
+    <article>
+      <h3 class="heading font-x2">Time Manual</h3>
+      <p>Our College store is located on the ground level of Bartlett Hall. Hours are 7:45 a.m. to 5:00 p.m., Monday through Thursday and 7:45 a.m. to 4:00 p.m. on Friday, with special hours on Saturdays for football games and/or special events.</p>
+    </article>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+  <footer id="footer" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div class="one_quarter first">
+      <h1 class="logoname clear"> <span>College Store</span></h1>
+      <p class="btmspace-30">Barton Hill, Barton Hill Colony, Kunnukuzhy, Thiruvananthapuram, Kerala 695035 </p>
+      <ul class="faico clear">
+        <li><a class="faicon-facebook" href="#"><i class="fab fa-facebook"></i></a></li>
+        <li><a class="faicon-google-plus" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+        <li><a class="faicon-linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
+        <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+        <li><a class="faicon-vk" href="#"><i class="fab fa-vk"></i></a></li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="heading">Location</h6>
+      <ul class="nospace linklist contact">
+        <li><i class="fas fa-map-marker-alt"></i>
+          <address>
+          Street Name &amp; Number, Town, Postcode/Zip
+          </address>
+        </li>
+        <li><i class="fas fa-phone"></i> +00 (123) 456 7890</li>
+        <li><i class="fas fa-fax"></i> +00 (123) 456 7890</li>
+        <li><i class="far fa-envelope"></i> info@domain.com</li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="heading">Our Responsibility</h6>
+      <ul class="nospace linklist">
+        <li><a href="#">Maecenas sem fusce quis</a></li>
+        <li><a href="#">Vel leo semper rhoncus ut</a></li>
+        <li><a href="#">Suscipit pede eu diam class</a></li>
+        <li><a href="#">Aptent taciti sociosqu ad</a></li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="heading">Licence</h6>
+      <ul class="nospace linklist">
+        <li>
+          <article>
+            <p class="nospace btmspace-10"><a href="#">Nostra per inceptos himenaeos cras augue est dictum quis&hellip;</a></p>
+            <time class="block font-xs" datetime="2023-11-28">Friday, 28<sup>th</sup> November 2023</time>
+          </article>
+        </li>
+        <li>
+          <article>
+            <p class="nospace btmspace-10"><a href="#">Suscipit vel est in pulvinar aliquam vulputate purus in tincidunt&hellip;</a></p>
+            <time class="block font-xs" datetime="2023-11-28">Friday, 28<sup>th</sup> November 2023</time>
+          </article>
+        </li>
+      </ul>
+    </div>
+    <!-- ################################################################################################ -->
+  </footer>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+  <div id="copyright" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy; 2023 - All Rights Reserved - <a href="#">Domain Name</a></p>
+    <p class="fl_right">Template by <a  href="#" title="Free Website Templates">Bhagyaraj Templates</a></p>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="{% static 'layout/scripts/jquery.min.js' %}"></script>
+<script src="{% static 'layout/scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'layout/scripts/jquery.mobilemenu.js' %}"></script>
+</body>
+</html>

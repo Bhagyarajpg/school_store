@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link href="{% static 'layout.css' %}" rel="stylesheet" type="text/css" media="all">
+    <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+    <style>
+        input,textarea,select{ background:black;}
+
+    </style>
+<script>
+function cal() {
+  alert("Order Submitted.  Return to HOME")
+}
+
+function myFunction() {
+  document.getElementById("myP").style.visibility = "visible";
+  document.getElementById("b").style.visibility = "hidden";
+}
+var subjectObject = {
+  "Engineering-UG": {
+    "IT": ["1"],
+    "CS": ["1"],
+    "Mechanical": ["1"]
+  },
+  "Engineering-PG": {
+    "CS&Network": ["1"],
+    "Networking": ["S1"]
+  },
+  "Science-UG": {
+    "Physics": ["1"],
+    "Chemistry": ["1"]
+  },
+  "Science-PG": {
+    "Botony": ["1"],
+    "Zology": ["S1"]
+  },
+  "Commerce": {
+    "BBA": ["1"],
+    "BCA": ["S1"]
+  }
+}
+window.onload = function() {
+  var subjectSel = document.getElementById("subject");
+  var topicSel = document.getElementById("topic");
+  var chapterSel = document.getElementById("chapter");
+  for (var x in subjectObject) {
+    subjectSel.options[subjectSel.options.length] = new Option(x, x);
+  }
+  subjectSel.onchange = function() {
+    //empty Chapters- and Topics- dropdowns
+    chapterSel.length = 1;
+    topicSel.length = 1;
+    //display correct values
+    for (var y in subjectObject[this.value]) {
+      topicSel.options[topicSel.options.length] = new Option(y, y);
+    }
+  }
+  topicSel.onchange = function() {
+    //empty Chapters dropdown
+    chapterSel.length = 1;
+    //display correct values
+    var z = subjectObject[subjectSel.value][this.value];
+    for (var i = 0; i < z.length; i++) {
+      chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+    }
+  }
+}
+</script>
+
+
+
+
+
+</head>
+<body ">
+
+<div class="wrapper bgded overlay" style="background-image:url({% static 'images/demo/backgrounds/01.jpg' %});">
+      <div id="pageintro" class="hoc " style="padding-top:20px;">
+
+<h1 style="font-size:400%;">User Information and Items List</h1><br>
+<button type="button" class="btn" onclick="myFunction()" id="b">Add List</button>
+<form action="buy" method="post"  id="myP" style="visibility:hidden; align:center;">
+    {% csrf_token %}
+    <table>
+        <tr><td>Name</td><td><input type="text"  name="name" placeholder="Enter the Name"></td></tr>
+        <tr><td>Address</td><td><textarea  name="addr" placeholder="Enter the Address"></textarea></td></tr>
+        <tr><td>Date of Birth</td><td><input type="date" name="dob" placeholder="Date of Birth"></td></tr>
+        <tr><td>Gender</td><td class=" inline ">Male<input type="radio" name="gender" value="Male" checked="checked">&nbsp;Female<input type="radio" name="gender" value="Female"></td></tr>
+        <tr><td>Phone Number</td><td><input type="number" name="phone" placeholder="Enter the Phone Number"></td></tr>
+        <tr><td>Email</td><td><input type="email" name="email" placeholder="Enter the Email"></td></tr>
+
+
+        <tr><td>Department</td><td>
+            <select name="dept" id="subject">
+                <option value="" selected="selected">Select Department</option>
+            </select>
+        </td></tr>
+        <tr><td>Course</td><td>
+            <select name="course" id="topic">
+                <option value="" selected="selected">Please select Course</option>
+            </select>
+            <select name="c" id="chapter" style="display: none;">
+                <option value="" selected="selected">P</option>
+            </select>
+        </td></tr>
+
+
+        <tr><td>Purpose</td><td>
+            <select name="purpose" id="purpose">
+                <option value="" selected="selected">Please select Purpose</option>
+                <option value="Enquiry" >Enquiry</option>
+                <option value="Place Order" >Place Order</option>
+                <option value="Return" >Return</option>
+            </select>
+        </td></tr>
+        <tr><td>Material Provide</td><td id="tblCars" class=" inline ">
+            Pen<input type="hidden" id="material" name="m1" value="" ><input type="checkbox" id="material" name="m1" value="pen," >&nbsp;&nbsp;
+            Pencil<input type="hidden" id="material" name="m2" value=""><input type="checkbox" id="material" name="m2" value="pencil,">&nbsp;&nbsp;
+            Book<input type="hidden" id="material" name="m3" value=""><input type="checkbox" id="material" name="m3" value="Book,">&nbsp;&nbsp;
+            Record<input type="hidden" id="material" name="m4" value=""><input type="checkbox" id="material" name="m4" value="Record,">&nbsp;&nbsp;
+            Chart<input type="hidden" id="material" name="m5" value=""><input type="checkbox" id="material" name="m5" value="Chart,">&nbsp;&nbsp;
+            scale<input type="hidden" id="material" name="m6" value=""><input type="checkbox" id="material" name="m6" value="Scale,"></td></tr>
+        <tr><td></td><td>
+            <input type="submit" class="btn" onclick="cal();"><a href="logout" >&nbsp;&nbsp;<input type="button"  value="Logout" class="btn"></a></td></tr>
+    </table>
+
+</form>
+
+</div>
+</div>
+<!--{% for msg in messages %}-->
+<!--{{msg}}-->
+<!--{% endfor %}-->
+</body>
+
+
+</html>
