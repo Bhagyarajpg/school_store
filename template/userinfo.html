@@ -12,9 +12,7 @@
 
     </style>
 <script>
-function cal() {
-  alert("Order Submitted.  Return to HOME")
-}
+
 
 function myFunction() {
   document.getElementById("myP").style.visibility = "visible";
@@ -83,24 +81,24 @@ window.onload = function() {
 
 <h1 style="font-size:400%;">User Information and Items List</h1><br>
 <button type="button" class="btn" onclick="myFunction()" id="b">Add List</button>
-<form action="buy" method="post"  id="myP" style="visibility:hidden; align:center;">
+<form action="buy" method="post" name="myForm" id="myP" style="visibility:hidden; align:center;" onsubmit="return validateForm()">
     {% csrf_token %}
     <table>
-        <tr><td>Name</td><td><input type="text"  name="name" placeholder="Enter the Name"></td></tr>
-        <tr><td>Address</td><td><textarea  name="addr" placeholder="Enter the Address"></textarea></td></tr>
-        <tr><td>Date of Birth</td><td><input type="date" name="dob" placeholder="Date of Birth"></td></tr>
+        <tr><td>Name</td><td><input type="text"  name="name" placeholder="Enter the Name" required></td></tr>
+        <tr><td>Address</td><td><textarea  name="addr" placeholder="Enter the Address" required></textarea></td></tr>
+        <tr><td>Date of Birth</td><td><input type="date" name="dob" placeholder="Date of Birth" required></td></tr>
         <tr><td>Gender</td><td class=" inline ">Male<input type="radio" name="gender" value="Male" checked="checked">&nbsp;Female<input type="radio" name="gender" value="Female"></td></tr>
-        <tr><td>Phone Number</td><td><input type="number" name="phone" placeholder="Enter the Phone Number"></td></tr>
-        <tr><td>Email</td><td><input type="email" name="email" placeholder="Enter the Email"></td></tr>
+        <tr><td>Phone Number</td><td><input type="number" name="phone" placeholder="Enter the Phone Number" required></td></tr>
+        <tr><td>Email</td><td><input type="email" name="email" placeholder="Enter the Email" required></td></tr>
 
 
         <tr><td>Department</td><td>
-            <select name="dept" id="subject">
+            <select name="dept" id="subject" required>
                 <option value="" selected="selected">Select Department</option>
             </select>
         </td></tr>
         <tr><td>Course</td><td>
-            <select name="course" id="topic">
+            <select name="course" id="topic" required>
                 <option value="" selected="selected">Please select Course</option>
             </select>
             <select name="c" id="chapter" style="display: none;">
@@ -110,7 +108,7 @@ window.onload = function() {
 
 
         <tr><td>Purpose</td><td>
-            <select name="purpose" id="purpose">
+            <select name="purpose" id="purpose" required>
                 <option value="" selected="selected">Please select Purpose</option>
                 <option value="Enquiry" >Enquiry</option>
                 <option value="Place Order" >Place Order</option>
@@ -118,23 +116,23 @@ window.onload = function() {
             </select>
         </td></tr>
         <tr><td>Material Provide</td><td id="tblCars" class=" inline ">
-            Pen<input type="hidden" id="material" name="m1" value="" ><input type="checkbox" id="material" name="m1" value="pen," >&nbsp;&nbsp;
+            Pen<input type="hidden" id="material" name="m1" value="" ><input  type="checkbox" id="material" name="m1" value="pen," >&nbsp;&nbsp;
             Pencil<input type="hidden" id="material" name="m2" value=""><input type="checkbox" id="material" name="m2" value="pencil,">&nbsp;&nbsp;
             Book<input type="hidden" id="material" name="m3" value=""><input type="checkbox" id="material" name="m3" value="Book,">&nbsp;&nbsp;
             Record<input type="hidden" id="material" name="m4" value=""><input type="checkbox" id="material" name="m4" value="Record,">&nbsp;&nbsp;
             Chart<input type="hidden" id="material" name="m5" value=""><input type="checkbox" id="material" name="m5" value="Chart,">&nbsp;&nbsp;
             scale<input type="hidden" id="material" name="m6" value=""><input type="checkbox" id="material" name="m6" value="Scale,"></td></tr>
         <tr><td></td><td>
-            <input type="submit" class="btn" onclick="cal();"><a href="logout" >&nbsp;&nbsp;<input type="button"  value="Logout" class="btn"></a></td></tr>
+            <input type="submit" class="btn" ><a href="logout" >&nbsp;&nbsp;<input type="button"  value="Logout" class="btn"></a></td></tr>
     </table>
 
 </form>
 
 </div>
 </div>
-<!--{% for msg in messages %}-->
-<!--{{msg}}-->
-<!--{% endfor %}-->
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
 </body>
 
 

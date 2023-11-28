@@ -15,12 +15,12 @@
     <h1  style="font-size:400%;">Registration Form</h1>
     {% csrf_token %}
     <input type="text" name="username" placeholder="Enter the username" class="btn"><br><br>
-    <input type="text" name="password" placeholder="Enter the password" class="btn"><br><br>
-    <input type="text" name="password1" placeholder="conform the password" class="btn"><br><br>
+    <input type="password" name="password" placeholder="Enter the password" class="btn"><br><br>
+    <input type="password" name="password1" placeholder="confirm the password" class="btn"><br><br>
     <input type="submit"  class="btn">
 </form>
-<!--{% for msg in messages %}-->
-<!--{{msg}}-->
-<!--{% endfor %}-->
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
 </body>
 </html>

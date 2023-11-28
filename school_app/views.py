@@ -29,21 +29,24 @@ def login(request):
 def register(request):
     if request.method == 'POST':
         username = request.POST['username']
-
         password = request.POST['password']
         password1 = request.POST['password1']
         if password == password1:
             if User.objects.filter(username=username).exists():
-                messages.info(request, 'username taken')
+                messages.info(request, 'Username taken !')
                 return redirect('register')
             else:
-                user = User.objects.create_user(username=username,password=password)
-                user.save();
-                return redirect('login')
+                if username == '' or password == '':
+                    messages.info(request, 'Invalid Username or Password')
+                    return redirect('register')
+                else:
+                    user = User.objects.create_user(username=username,password=password)
+                    user.save();
+                    return redirect('login')
                 # return redirect('/')
                 # print("user created")
         else:
-            messages.info(request, 'Password conform faild!')
+            messages.info(request, 'Password conform faild !')
             return redirect('register')
         return redirect('/')
     return render(request, 'register.html')
@@ -65,6 +68,10 @@ def buy(request):
         course = request.POST['course']
         purpose = request.POST['purpose']
         material = request.POST['m1']+ request.POST['m2']+ request.POST['m3']+ request.POST['m4']+ request.POST['m5']+ request.POST['m6']
+        # if material == '':
+        #     messages.info(request, 'Please select atleast one items !')
+        #     return redirect('userinfo')
+        # else:
         user = Order.objects.create(name=name,
                                     addr=addr,
                                     dob=dob,
@@ -77,8 +84,5 @@ def buy(request):
                                     material=material
                                     )
         user.save();
-        #window.alert("Orser")
-        return redirect('/')
-
-
+        return redirect('order.html')
     return render(request, 'register.html')

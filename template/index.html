@@ -19,11 +19,11 @@ Licence URI: https://www.os-templates.com/template-terms
 <body id="top">
 <!-- ################################################################################################ -->
 
-<div class="wrapper row1" style="background-color:gray;">
+<div class="wrapper row1" >
   <div class="hoc clear"> 
     <!-- ################################################################################################ -->
     <nav id="mainav">
-        <ul class="clear">
+        <ul class="clear"><b>
           <li ><a href="/">Home</a></li>
           <li><a class="drop" href="#">Department</a>
             <ul>
@@ -40,12 +40,13 @@ Licence URI: https://www.os-templates.com/template-terms
 
 
         {% if user.is_authenticated %}
+          <li>Hi, {{user.username}}</li>
            <li><a href="logout">Logout</a></li>
         {% else %}
 
         {% endif %}
 
-
+        </b>
       </ul>
     </nav>
     <!-- ################################################################################################ -->
